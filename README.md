@@ -67,7 +67,7 @@ python final_complete_server.py
 docker pull ghcr.io/longavailable/docx-mcp:latest
 ```
 
-#### 快速启动
+#### 快速启动（stdio通信协议）
 
 ```bash
 docker run -d \
@@ -76,6 +76,21 @@ docker run -d \
   -i \
   -v ~/workspace:/workspace \
   ghcr.io/longavailable/docx-mcp:latest
+```
+
+#### 快速启动（streamable-http通信协议）
+
+```bash
+docker run -d \
+  --name docx-mcp-server \
+  --restart always \
+  -p 127.0.0.1:8765:8765 \
+  -v ~/workspace:/workspace \
+  ghcr.io/longavailable/docx-mcp:latest \
+  python final_complete_server.py \
+  --transport streamable-http \
+  --host 0.0.0.0 \
+  --port 8765
 ```
 
 ## 🎯 核心功能
