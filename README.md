@@ -71,8 +71,9 @@ docker pull ghcr.io/longavailable/docx-mcp:latest
 
 ```bash
 docker run -d \
-  --name docx-mcp \
+  --name docx-mcp-server \
   --restart always \
+  -i \
   -v ~/workspace:/workspace \
   ghcr.io/longavailable/docx-mcp:latest
 ```
