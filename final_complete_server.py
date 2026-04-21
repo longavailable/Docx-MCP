@@ -2542,41 +2542,43 @@ def main():
     
     args = parser.parse_args()
     
-    # 只在非STDIO模式下输出启动信息
-    if args.transport != 'stdio':
-        print("=" * 60)
-        print("Starting DOCX MCP Server")
-        print("=" * 60)
-        print()
-        print("Server Information:")
-        print(f"   Name: FinalCompleteDocxProcessor")
-        print(f"   Transport: {args.transport.upper()}")
+    # 输出启动信息（在所有传输模式下都显示）
+    print("=" * 60)
+    print("启动最终完整MCP服务器...")
+    print("=" * 60)
+    print()
+    print("Server Information:")
+    print(f"   Name: FinalCompleteDocxProcessor")
+    print(f"   Transport: {args.transport.upper()}")
 
-        if args.transport == 'hybrid':
-            print(f"   Address: http://{args.host}:{args.port}")
-            print()
-            print("Hybrid Transport Endpoints:")
-            print(f"   - SSE Connection: http://{args.host}:{args.port}/sse")
-            print(f"   - SSE Messages: http://{args.host}:{args.port}/messages/")
-            print(f"   - HTTP API: http://{args.host}:{args.port}/mcp")
-        elif args.transport in ['sse', 'streamable-http']:
-            print(f"   Address: http://{args.host}:{args.port}")
+    if args.transport == 'hybrid':
+        print(f"   Address: http://{args.host}:{args.port}")
+        print()
+        print("Hybrid Transport Endpoints:")
+        print(f"   - SSE Connection: http://{args.host}:{args.port}/sse")
+        print(f"   - SSE Messages: http://{args.host}:{args.port}/messages/")
+        print(f"   - HTTP API: http://{args.host}:{args.port}/mcp")
+    elif args.transport in ['sse', 'streamable-http']:
+        print(f"   Address: http://{args.host}:{args.port}")
 
-        print()
-        print("Feature Modules:")
-        print("   - Basic Document Management (8 tools)")
-        print("   - Text Content Processing (5 tools)")
-        print("   - Table Operations (6 tools)")
-        print("   - Table Analysis (5 tools)")
-        print("   - Table Filling (4 tools)")
-        print("   - Image Processing (3 tools)")
-        print("   - Page Setup (3 tools)")
-        print("   - Smart Features (5 tools)")
-        print("   - System Status (3 tools)")
-        print()
-        print("Total: 42 MCP Tools")
-        print("=" * 60)
-        print()
+    print()
+    print("功能模块:")
+    print("   - 基础文档管理 (8个工具)")
+    print("   - 智能文档创建 (1个工具)")
+    print("   - 基础文本内容 (4个工具)")
+    print("   - 智能内容处理 (1个工具)")
+    print("   - 基础表格处理 (5个工具)")
+    print("   - 表格结构提取 (4个工具)")
+    print("   - 智能表格处理 (2个工具)")
+    print("   - 智能规划指导 (3个工具)")
+    print("   - 基础图片处理 (3个工具)")
+    print("   - 基础页面设置 (3个工具)")
+    print("   - 智能建议 (1个工具)")
+    print("   - 系统状态 (3个工具)")
+    print()
+    print("总计: 42个工具 (32个基础工具 + 10个智能工具)")
+    print("=" * 60)
+    print()
     
     # 根据传输协议启动MCP服务器
     try:
