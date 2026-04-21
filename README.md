@@ -14,13 +14,15 @@
 
 ## 🚀 快速开始
 
-### 系统要求
+### 手动安装/mannual install
+
+#### 系统要求
 
 - Python 3.8+
 - Windows 10/11 (推荐)
 - Microsoft Word 或兼容的docx处理库
 
-### 安装依赖
+#### 安装依赖
 
 ```bash
 # 克隆项目
@@ -31,7 +33,7 @@ cd docx_mcp
 pip install -r requirements.txt
 ```
 
-### 启动MCP服务器
+#### 启动MCP服务器
 
 ```bash
 python final_complete_server.py
@@ -55,6 +57,25 @@ python final_complete_server.py
 - 系统状态 (3个工具)
 
 总计: 42个工具 (32个基础工具 + 10个智能工具)
+```
+
+### Docker部署（GHCR镜像）
+
+#### 拉取镜像
+
+```bash
+docker pull ghcr.io/longavailable/docx-mcp:latest
+```
+
+#### 快速启动
+
+```bash
+docker run -d \
+  --name docx-mcp \
+  --restart always \
+  -p 8000:8000 \
+  -v ~/workspace:/word_files \
+  ghcr.io/longavailable/docx-mcp:latest
 ```
 
 ## 🎯 核心功能
