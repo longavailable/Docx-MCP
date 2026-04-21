@@ -74,7 +74,7 @@ docker run -d \
   --name docx-mcp-server \
   --restart always \
   -i \
-  -v ~/workspace:/workspace \
+  -v ~/workspace:~/workspace \
   ghcr.io/longavailable/docx-mcp:latest
 ```
 
@@ -85,7 +85,7 @@ docker run -d \
   --name docx-mcp-server \
   --restart always \
   -p 127.0.0.1:8765:8765 \
-  -v ~/workspace:/workspace \
+  -v ~/workspace:~/workspace \
   ghcr.io/longavailable/docx-mcp:latest \
   python final_complete_server.py \
   --transport streamable-http \
