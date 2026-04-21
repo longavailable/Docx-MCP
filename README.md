@@ -73,8 +73,7 @@ docker pull ghcr.io/longavailable/docx-mcp:latest
 docker run -d \
   --name docx-mcp \
   --restart always \
-  -p 8000:8000 \
-  -v ~/workspace:/word_files \
+  -v ~/workspace:/workspace \
   ghcr.io/longavailable/docx-mcp:latest
 ```
 
